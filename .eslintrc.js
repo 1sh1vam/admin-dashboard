@@ -17,5 +17,6 @@ module.exports = {
     'import/prefer-default-export': 0,
     'react/function-component-definition': 0,
     'arrow-body-style': 0,
+    'object-curly-newline': 0,
   },
 };
