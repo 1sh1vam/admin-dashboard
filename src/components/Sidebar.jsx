@@ -4,9 +4,10 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 
 import { links } from '../data/dummy';
+import { useStateContext } from '../contexts/ContextProvider';
 
 function Sidebar() {
-  const activeMenu = true;
+  const { activeMenu, setActiveMenu } = useStateContext();
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md mt-2';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray text-md mt-2';
@@ -15,12 +16,12 @@ function Sidebar() {
       {activeMenu && (
         <>
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3 text-xl dark:text-white text-slate-900 font-extrabold tracking-tight ml-3 mt-4">
+            <Link to="/" onClick={() => setActiveMenu(false)} className="flex items-center gap-3 text-xl dark:text-white text-slate-900 font-extrabold tracking-tight ml-3 mt-4">
               <SiShopware />
               <span>Shoppy</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
-              <button onClick={() => {}} className="text-xl rounded-full p-3 block hover:bg-light-gray md:hidden mt-4">
+              <button onClick={() => setActiveMenu((prev) => !prev)} className="text-xl rounded-full p-3 block hover:bg-light-gray md:hidden mt-4">
                 <MdOutlineCancel />
               </button>
             </TooltipComponent>
