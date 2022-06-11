@@ -4,6 +4,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { BsChatLeft } from 'react-icons/bs';
 import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import { useEffect } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
 
 import avatar from '../data/avatar.jpg';
@@ -30,7 +31,25 @@ const NavBtn = ({ title, icon, color, dotColor, customFunc }) => (
 );
 
 function NavBar() {
-  const { setActiveMenu, isClicked, handleClick } = useStateContext();
+  const { setActiveMenu, isClicked, handleClick, screenSize, setScreenSize } = useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
