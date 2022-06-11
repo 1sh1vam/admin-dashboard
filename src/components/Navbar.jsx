@@ -19,9 +19,8 @@ const NavBtn = ({ title, icon, color, dotColor, customFunc }) => (
       <span
         style={{ background: dotColor }}
         className="absolute inline-flex top-2 right-2 rounded-full h-2 w-2"
-      >
-        {icon}
-      </span>
+      />
+      {icon}
     </button>
   </TooltipComponent>
 );
