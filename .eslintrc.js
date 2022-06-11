@@ -20,6 +20,8 @@ module.exports = {
     'react/prop-types': 0,
     'arrow-body-style': 0,
     'react/jsx-no-constructed-context-values': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
     'object-curly-newline': 0,
     'react/jsx-one-expression-per-line': 0,
     'max-len': [
