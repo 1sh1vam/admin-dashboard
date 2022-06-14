@@ -58,7 +58,7 @@ function NavBar() {
       <div className="flex">
         <NavBtn title="Cart" icon={<FiShoppingCart />} color={currentColor} customFunc={() => handleClick('cart')} />
         <NavBtn title="Chat" icon={<BsChatLeft />} color={currentColor} dotColor="#03C9D7" customFunc={() => handleClick('chat')} />
-        <NavBtn title="Notification" icon={<RiNotification3Line />} color={currentColor} dotColor="#03C9D7" customFunc={() => handleClick('notification')} />
+        <NavBtn title="Notification" icon={<RiNotification3Line />} color={currentColor} dotColor="rgb(254, 201, 15)" customFunc={() => handleClick('notification')} />
         <TooltipComponent content="Profile" position="BottomCenter">
           <div onClick={() => handleClick('userProfile')} className="flex text-14 text-gray-400 items-center cursor-pointer gap-2 p-1 hover:bg-light-gray rounded-lg">
             <img src={avatar} className="w-8 h-8 rounded-full" alt="Avatar" />
