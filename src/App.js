@@ -8,8 +8,7 @@ import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
 
 function App() {
-  const { activeMenu } = useStateContext();
-  const themeSettings = true;
+  const { activeMenu, themeSettings } = useStateContext();
 
   return (
     <div>
