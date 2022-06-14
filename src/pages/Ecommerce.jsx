@@ -1,9 +1,11 @@
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { Button, SparkLine, Stacked } from '../components';
+import { useStateContext } from '../contexts/ContextProvider';
 import { earningData, SparklineAreaData } from '../data/dummy';
 
 const Ecommerce = () => {
+  const { currentColor } = useStateContext();
   return (
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
@@ -13,7 +15,7 @@ const Ecommerce = () => {
               <p className="text-gray-400 font-bold">Earnings</p>
               <p className="text-2xl">$23,000</p>
             </div>
-            <button className="blue rounded-full">
+            <button style={{ backgroundColor: currentColor }} className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full p-4">
               <BsCurrencyDollar />
             </button>
           </div>
@@ -21,7 +23,7 @@ const Ecommerce = () => {
             <Button
               text="Download"
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               size="sm"
               borderRadius="10px"
             />
@@ -74,10 +76,10 @@ const Ecommerce = () => {
                 <p className="text-gray-500 mt-1">Expense</p>
               </div>
               <div className="mt-5">
-                <SparkLine currentColor="blue" id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color="blue" />
+                <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
               </div>
               <div className="mt-10">
-                <Button color="white" bgColor="blue" text="Download Report" borderRadius="10px" />
+                <Button color="white" bgColor={currentColor} text="Download Report" borderRadius="10px" />
               </div>
             </div>
             <div>
