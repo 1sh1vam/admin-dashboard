@@ -8,10 +8,10 @@ import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
 
 function App() {
-  const { activeMenu, themeSettings } = useStateContext();
+  const { activeMenu, currentMode, themeSettings, setThemeSettings } = useStateContext();
 
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed bottom-4 right-4" style={{ zIndex: 1000 }}>
@@ -20,6 +20,7 @@ function App() {
                 type="button"
                 style={{ borderRadius: '50%' }}
                 className="p-3 text-3xl bg-blue-500 text-white hover:drop-shadow-xl hover:bg-light-gray"
+                onClick={() => setThemeSettings(true)}
               >
                 <FiSettings />
               </button>

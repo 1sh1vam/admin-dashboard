@@ -2,9 +2,11 @@
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { BsCheck } from 'react-icons/bs';
 import { MdOutlineCancel } from 'react-icons/md';
+import { useStateContext } from '../contexts/ContextProvider';
 import { themeColors } from '../data/dummy';
 
 function ThemeSettings() {
+  const { setThemeSettings } = useStateContext();
   const currentColor = '';
   return (
     <div className="w-screen bg-half-transparent nav-item fixed top-0 right-0">
@@ -14,6 +16,7 @@ function ThemeSettings() {
           <button
             style={{ color: 'rgb(153, 171, 180)', borderRadius: '50%' }}
             className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+            onClick={() => setThemeSettings(false)}
           >
             <MdOutlineCancel />
           </button>
