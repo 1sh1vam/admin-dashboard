@@ -31,7 +31,7 @@ const Ecommerce = () => {
         </div>
         <div className="flex flex-wrap m-3 justify-center items-center gap-1">
           {earningData.map((item) => (
-            <div key={item.title} className="bg-white h-44 dark:text-gray-200 dark:bg-secondaey-dark-bg md:w-56 p-4 pt-9 rounded-2xl">
+            <div key={item.title} className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl">
               <button
                 style={{ backgroundColor: item.iconBg, color: item.iconColor }}
                 className="rounded-full text-2xl opacity-0.9 p-4 hover:drop-shadow-xl"
