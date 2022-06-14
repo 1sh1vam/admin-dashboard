@@ -25,6 +25,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'object-curly-newline': 0,
     'react/destructuring-assignment': 0,
+    'jsx-a11y/label-has-associated-control': 0,
     'react/jsx-one-expression-per-line': 0,
     'max-len': [
       2,
