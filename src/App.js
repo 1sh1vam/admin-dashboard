@@ -4,7 +4,8 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
-import { ColorPicker } from './pages';
+// import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+// import { Editor } from './pages';
 
 const Editor = lazy(() => import('./pages/Editor'));
 
@@ -24,7 +25,8 @@ const Area = lazy(() => import('./pages/charts/Area'));
 const Bar = lazy(() => import('./pages/charts/Bar'));
 const Pie = lazy(() => import('./pages/charts/Pie'));
 const Financial = lazy(() => import('./pages/charts/Financial'));
-const ColorMapping = lazy(() => import('./pages/ColorPicker'));
+const ColorMapping = lazy(() => import('./pages/charts/ColorMapping'));
+const ColorPicker = lazy(() => import('./pages/ColorPicker'));
 
 function App() {
   const { activeMenu, currentMode, currentColor, themeSettings, setThemeSettings } = useStateContext();
