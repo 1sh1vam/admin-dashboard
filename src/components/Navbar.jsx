@@ -7,7 +7,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 import { useEffect } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
 
-import avatar from '../data/avatar.jpg';
+import avatar from '../data/avatar2.jpg';
 import Cart from './Cart';
 import Chat from './Chat';
 import Notification from './Notification';
@@ -64,7 +64,7 @@ function NavBar() {
             <img src={avatar} className="w-8 h-8 rounded-full" alt="Avatar" />
             <p>
               <span>Hi,</span>
-              <span className="font-bold ml-1">Dhoni</span>
+              <span className="font-bold ml-1">Amanda</span>
             </p>
             <MdKeyboardArrowDown />
           </div>
