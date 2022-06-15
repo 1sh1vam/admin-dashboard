@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext();
 
-const initialState = {
+export const initialState = {
   chat: false,
   cart: false,
   userProfile: false,
@@ -34,6 +34,7 @@ export const ContextProvider = ({ children }) => {
       activeMenu,
       setActiveMenu,
       isClicked,
+      setClicked,
       handleClick,
       screenSize,
       setScreenSize,
