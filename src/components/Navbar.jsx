@@ -8,10 +8,10 @@ import { useEffect } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
 
 import avatar from '../data/avatar2.jpg';
-import Cart from './Cart';
 import Chat from './Chat';
 import Notification from './Notification';
 import UserProfile from './UserProfile';
+import Cart from './Cart';
 
 const NavBtn = ({ title, icon, color, dotColor, customFunc }) => (
   <TooltipComponent content={title} position="BottomCenter">
