@@ -4,15 +4,11 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
-// import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+import Navbar from './components/Navbar';
+import { Footer, Sidebar, ThemeSettings } from './components';
 // import { Editor } from './pages';
 
 const Editor = lazy(() => import('./pages/Editor'));
-
-const Navbar = lazy(() => import('./components/Navbar'));
-const Footer = lazy(() => import('./components/Footer'));
-const Sidebar = lazy(() => import('./components/Sidebar'));
-const ThemeSettings = lazy(() => import('./components/ThemeSettings'));
 const Ecommerce = lazy(() => import('./pages/Ecommerce'));
 const Orders = lazy(() => import('./pages/Orders'));
 const Calendar = lazy(() => import('./pages/Calendar'));
@@ -34,35 +30,35 @@ function App() {
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
-        <Suspense fallback={<div>Loading...</div>}>
-          <div className="flex relative dark:bg-main-dark-bg">
-            <div className="fixed bottom-4 right-4" style={{ zIndex: 1000 }}>
-              <TooltipComponent content="Settings" position="Top">
-                <button
-                  type="button"
-                  style={{ background: currentColor, borderRadius: '50%' }}
-                  className="p-3 text-3xl text-white hover:drop-shadow-xl hover:bg-light-gray"
-                  onClick={() => setThemeSettings(true)}
-                >
-                  <FiSettings />
-                </button>
-              </TooltipComponent>
+        <div className="flex relative dark:bg-main-dark-bg">
+          <div className="fixed bottom-4 right-4" style={{ zIndex: 1000 }}>
+            <TooltipComponent content="Settings" position="Top">
+              <button
+                type="button"
+                style={{ background: currentColor, borderRadius: '50%' }}
+                className="p-3 text-3xl text-white hover:drop-shadow-xl hover:bg-light-gray"
+                onClick={() => setThemeSettings(true)}
+              >
+                <FiSettings />
+              </button>
+            </TooltipComponent>
+          </div>
+          {activeMenu ? (
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+              <Sidebar />
             </div>
-            {activeMenu ? (
-              <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-                <Sidebar />
-              </div>
-            ) : (
-              <div className="w-0 dark:bg-secondary-dark-bg">
-                <Sidebar />
-              </div>
-            )}
-            <div className={activeMenu ? 'dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-72 w-full' : 'bg-main-bg dark:bg-main-dark-bg w-full min-h-screen flex-2'}>
-              <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-                <Navbar />
-              </div>
-              <div>
-                {themeSettings && (<ThemeSettings />)}
+          ) : (
+            <div className="w-0 dark:bg-secondary-dark-bg">
+              <Sidebar />
+            </div>
+          )}
+          <div className={activeMenu ? 'dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-72 w-full' : 'bg-main-bg dark:bg-main-dark-bg w-full min-h-screen flex-2'}>
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+              <Navbar />
+            </div>
+            <div>
+              {themeSettings && (<ThemeSettings />)}
+              <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                   {/* Dashboard */}
                   <Route path="/" element={<Ecommerce />} />
@@ -88,11 +84,11 @@ function App() {
                   <Route path="/color-mapping" element={<ColorMapping />} />
                   <Route path="/pyramid" element={<Pyramid />} />
                 </Routes>
-              </div>
-              <Footer />
+              </Suspense>
             </div>
+            <Footer />
           </div>
-        </Suspense>
+        </div>
       </BrowserRouter>
     </div>
   );
